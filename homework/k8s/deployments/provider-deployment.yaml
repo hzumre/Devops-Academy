@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: provider-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: provider
+  template:
+    metadata:  
+      labels:
+        app: provider
+    spec:
+      containers:
+        - name: provider
+          image: devops-akademi:v7
+          ports:
+           - containerPort: 2000
